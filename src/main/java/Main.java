@@ -62,7 +62,7 @@ public class Main {
     }
 
     private static void parsePostcode(String postcode, String areaName) throws IOException, ParseException {
-        File file = new File ("C:\\Users\\vaida\\Documents\\GitHub\\postcodedistrict\\src\\main\\java\\PostalDistrict.json");
+        File file = new File ("./src/main/java/PostalDistrict.json");
         JSONParser jsonParser = new JSONParser();
         if (file.isFile()) {
             FileReader fileReader = new FileReader(file);
@@ -100,8 +100,8 @@ public class Main {
 
     private static void parseFeatures(JSONArray features, String folderName, String areaName) throws IOException {
         // Make districts folder
-        File districtFolder = new File("C:\\Users\\vaida\\Documents\\GitHub\\postcodedistrict\\src\\main\\resources\\results\\" +
-                folderName + "\\districts\\" + areaName);
+        File districtFolder = new File("./src/main/resources/results/" +
+                folderName + "/districts/" + areaName);
         districtFolder.mkdirs();
         // Overriding properties
         JSONObject result = new JSONObject();
@@ -117,8 +117,8 @@ public class Main {
             );
             feature.put("properties", properties);
             // Save file on its own
-            Path path = Paths.get("C:\\Users\\vaida\\Documents\\GitHub\\postcodedistrict\\src\\main\\resources\\results\\" +
-                    folderName + "\\districts\\" + areaName + "\\" +
+            Path path = Paths.get("./src/main/resources/results/" +
+                    folderName + "/districts/" + areaName + "/" +
                     oProperties.get("PostDist").toString() + ".geojson");
             byte[] bytes = feature.toString().getBytes();
             Files.write(path, bytes);
@@ -126,8 +126,8 @@ public class Main {
         result.put("features", features);
 
         // Write to file
-        Path path = Paths.get("C:\\Users\\vaida\\Documents\\GitHub\\postcodedistrict\\src\\main\\resources\\results\\" +
-                folderName + "\\" +
+        Path path = Paths.get("./src/main/resources/results/" +
+                folderName + "/" +
                 areaName + ".geojson");
         byte[] bytes = result.toString().getBytes();
         Files.write(path, bytes);
