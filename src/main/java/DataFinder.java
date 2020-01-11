@@ -12,7 +12,7 @@ import java.util.Objects;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
-public class Main {
+public class DataFinder {
 
     private static String folderName;
 
@@ -90,8 +90,8 @@ public class Main {
             JSONObject jsonObject = (JSONObject) obj;
             JSONObject properties = (JSONObject) jsonObject.get("properties");
             String name = properties.get("PostDist").toString();
-            name = name.replaceAll("[0-9]", "");
-            if (name.equals(postcode)) {
+            String[] nameSplit = name.split("[0-9]");
+            if (nameSplit[0].equals(postcode)) {
                 results.add(obj);
             }
         }

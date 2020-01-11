@@ -22,7 +22,6 @@ public class MergeDataProcessor {
             JSONObject obj = (JSONObject) jsonParser.parse(fileReader);
             features.add(obj);
         }
-        System.out.println(features);
         // Create and populate result JSON object
         JSONObject result = new JSONObject();
         result.put("type", "FeatureCollection");
