@@ -20,7 +20,7 @@ public class DataFinder {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter results folder name");
         folderName = sc.nextLine();
-        File folder = new File("C:\\Users\\vaida\\Documents\\GitHub\\postcodedistrict\\src\\main\\resources\\results\\" + folderName);
+        File folder = new File("./src/main/resources/results/" + folderName);
         folder.mkdir();
         while(true) {
             System.out.println("Enter a postcode area e.g. PL,Plymouth");
