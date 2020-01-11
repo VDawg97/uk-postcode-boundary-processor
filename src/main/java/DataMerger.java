@@ -11,7 +11,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Scanner;
 
-public class MergeDataProcessor {
+public class DataMerger {
 
     public static void main(String[] args) throws IOException, ParseException {
         JSONParser jsonParser = new JSONParser();
